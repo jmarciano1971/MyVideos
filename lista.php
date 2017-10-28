@@ -24,9 +24,9 @@
 
     	$parte = explode('/',$row[6]);
 
-		$filename = "/filmes/" . $parte[count($parte) - 1];
+		$filename = "/media/filmes/" . $parte[count($parte) - 1];
         if (!file_exists($filename))
-	       $filename = "/filmes/" . $parte[count($parte) - 2] . '/' . $parte[count($parte) - 1 ];
+	       $filename = "/media/filmes/" . $parte[count($parte) - 2] . '/' . $parte[count($parte) - 1 ];
 
 		$filename = utf8_encode($filename);
                 echo "<p>";
