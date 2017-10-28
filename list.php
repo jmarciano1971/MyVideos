@@ -3,7 +3,28 @@
   <head>
     <meta charset="ISO8859-1">
     <title></title>
-      </head>
+    <script src="jquery.min.js"></script>
+    <script>
+    function searchFilter(page_num) {
+        page_num = page_num?page_num:0;
+        var keywords = $('#keywords').val();
+        var sortBy = $('#sortBy').val();
+        $.ajax({
+            type: 'POST',
+            url: 'getData.php',
+            data:'page='+page_num+'&keywords='+keywords+'&sortBy='+sortBy,
+            beforeSend: function () {
+                $('.loading-overlay').show();
+            },
+            success: function (html) {
+                $('#posts_content').html(html);
+                $('.loading-overlay').fadeOut("slow");
+            }
+        });
+    }
+    </script>
+
+  </head>
   <body>
 
 <div class="post-search-panel">
