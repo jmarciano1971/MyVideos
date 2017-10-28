@@ -27,7 +27,7 @@
     $limit = 10;
 
     //get number of rows
-    $queryNum = $db->query("SELECT COUNT(*) as postNum FROM posts");
+    $queryNum = $db->query("SELECT COUNT(*) as postNum FROM movie");
     $resultNum = $queryNum->fetch_assoc();
     $rowCount = $resultNum['postNum'];
 
