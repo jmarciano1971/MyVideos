@@ -40,7 +40,7 @@
     $pagination =  new Pagination($pagConfig);
 
     //get rows
-    $query = $db->query("SELECT * FROM posts ORDER BY id DESC LIMIT $limit");
+    $query = $db->query("select idMovie, idFile, c16 , c02, c16, c19, c22 from movie order by premiered desc $limit");
 
     if($query->num_rows > 0){ ?>
         <div class="posts_list">
