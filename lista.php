@@ -7,7 +7,7 @@
   <body>
 	<?php
 
-  include_once("connect.inc);
+  include_once("connect.inc");
 
 	/* check connection */
 	if ($mysqli->connect_errno) {
