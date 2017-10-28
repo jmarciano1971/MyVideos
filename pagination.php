@@ -136,7 +136,6 @@ class Pagination{
                 . $this->getAJAXlink( $i, $this->prevLink )
                 . $this->prevTagClose;
         }
-      
 
         // Write the digit links
         for ($loop = $start -1; $loop <= $end; $loop++){
