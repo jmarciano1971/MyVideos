@@ -48,7 +48,7 @@
     $limit = 10;
 
     //get number of rows
-    $queryNum = $db->query("SELECT COUNT(*) as postNum FROM movie");
+    $queryNum = $db->query("SELECT COUNT(*) as postNum FROM movie ".$whereSQL.$orderSQL);
     $resultNum = $queryNum->fetch_assoc();
     $rowCount = $resultNum['postNum'];
 
@@ -61,15 +61,15 @@
     $pagination =  new Pagination($pagConfig);
 
     //get rows
-    $query = $db->query("select idMovie, idFile, c16 , c02, c16, c19, c22 from movie order by premiered desc $limit");
+    $query = $db->query("select idMovie, idFile, c16 , c02, c16, c19, c22 from movie $whereSQL $orderSQL LIMIT $start,$limit");
 
     if($query->num_rows > 0){ ?>
         <div class="posts_list">
         <?php
-            while($row = $query->fetch_assoc()){
-                $postID = $row['id'];
+            while($row = $query->fetch_array(MYSQLI_NUM)){
+                $postID = $row[0];
         ?>
-            <div class="list_item"><a href="javascript:void(0);"><h2><?php echo $row["title"]; ?></h2></a></div>
+            <div class="list_item"><a href="javascript:void(0);"><h2><?php echo $row[6]; ?></h2></a></div>
         <?php } ?>
         </div>
         <?php echo $pagination->createLinks(); ?>
