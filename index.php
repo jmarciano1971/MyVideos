@@ -81,13 +81,13 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 	if(!empty($result)) {
 		foreach($result as $row) {
 
-			$txt = getTextBetweenTags($row['c20'], "thumb");
+			$img = getTextBetweenTags($row['c20'], "thumb");
 
 	?>
 	  <tr class='table-row'>
-		<td><?php echo $row['c16']; ?></td>
-		<td><?php echo $row['c22']; ?></td>
-		<td><?php echo $txt; ?></td>
+		<td><img src="<?php echo $img; ?>" alt="Smiley face" height="240" width="160"></td>
+		<td><?php echo $row['16']; ?></td>
+		<td><?php echo "-"; ?></td>
 	  </tr>
     <?php
 		}
