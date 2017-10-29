@@ -81,7 +81,7 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 	if(!empty($result)) {
 		foreach($result as $row) {
 
-			$txt = getTextBetweenTags($row['c20'], "thumb preview");
+			$txt = getTextBetweenTags($row['c20'], "thumb");
 
 	?>
 	  <tr class='table-row'>
