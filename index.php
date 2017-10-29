@@ -1,5 +1,5 @@
 <?php
-define("ROW_PER_PAGE",10);
+define("ROW_PER_PAGE",4);
 require_once('db.php');
 ?>
 <html>
@@ -86,9 +86,17 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 
 			$img = getTextBetweenTags($row['c08'], "thumb");
 
+			$piece = explode('/',$row[6]);
+
+		  $filename = "/media/filmes/" . $piece[count($piece) - 1];
+			if (!file_exists($filename))
+				 $filename = "/media/filmes/" . $piece[count($piece) - 2] . '/' . $piece[count($piece) - 1 ];
+
+		  $filename = utf8_encode($filename);
+
 	?>
 	  <tr class='table-row'>
-		<td><img src="<?php echo $img; ?>" alt="Smiley face" height="160" width="120"></td>
+		<td><a href="videoPlayer.php?filename="<?php echo $filename;?>><img src="<?php echo $img; ?>" alt="Smiley face" height="160" width="120"></a></td>
 		<td><?php echo $row['c16']; ?></td>
 		<td><?php echo utf8_encode($row['c00']); ?></td>
 		<td><?php echo $row['premiered']; ?></td>
