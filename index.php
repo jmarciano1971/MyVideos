@@ -85,7 +85,7 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 
 	?>
 	  <tr class='table-row'>
-		<td><img src="<?php echo $img; ?>" alt="Smiley face" height="135" width="360"></td>
+		<td><img src="<?php echo $img; ?>" alt="Smiley face" height="320" width="240"></td>
 		<td><?php echo $row['16']; ?></td>
 		<td><?php echo "-"; ?></td>
 	  </tr>
