@@ -87,7 +87,7 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 
 			$img = getTextBetweenTags($row['c08'], "thumb");
 
-			$piece = explode('/',$row['c22']);
+			$piece = explode('/',$row['c22'], 6);
 
 		  $filename = "/media/filmes/" . $piece[count($piece) - 1];
 			if (!file_exists($filename))
