@@ -101,10 +101,10 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 		<td>
     <?php echo "<a href=\"videoPlayer.php?filename=$filename&poster=$img&title=$title\">";?><img src=<?php echo $img; ?> title="<?php echo utf8_encode($row['c01']); ?>" height="160" width="120">
 		</a></td>
-		<td align="center"><?php echo $title; ?></td>
-		<td align="center"><?php echo utf8_encode($row['c00']); ?></td>
-		<td align="center"><?php echo $row['premiered']; ?></td>
-    <td align="center"><?php echo utf8_encode($row['c14']); ?></td>
+		<td align="center" valign="center"><?php echo $title; ?></td>
+		<td align="center" valign="center"><?php echo utf8_encode($row['c00']); ?></td>
+		<td align="center" valign="center"><?php echo $row['premiered']; ?></td>
+    <td align="center" valign="center"><?php echo utf8_encode($row['c14']); ?></td>
 	  </tr>
     <?php
 		}

@@ -24,7 +24,7 @@
 		   exec("sudo -u jms /usr/bin/ffmpeg -sub_charenc ISO8859-1 -i '$filename_srt' '$filename_vtt'",$output);
 		}
 	?>
-        <video id="video" width="640" height="360" controls autoplay>
+        <video id="video" width="640" height="360" controls autoplay poster="<?php echo $_GET["poster"]; ?>">
 			<source src="<?php echo $filename; ?>" type="video/mp4">
 			<track label="Português (Brazil)" kind="subtitles" srclang="pt-br" src="<?php echo $filename_vtt; ?>" default>
 		</video>
