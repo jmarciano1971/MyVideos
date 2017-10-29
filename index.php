@@ -104,7 +104,7 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 		<td><?php echo $row['c16']; ?></td>
 		<td title="<?php echo utf8_encode($row['c03']); ?>"><?php echo utf8_encode($row['c00']); ?></td>
 		<td><?php echo $row['premiered']; ?></td>
-		<td><?php echo utf8_encode($row['c14']); ?></td>
+		<td><?php var_dump($piece); ?></td>
 	  </tr>
     <?php
 		}
