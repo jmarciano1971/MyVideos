@@ -94,7 +94,7 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 //				 $filename = "/media/filmes/" . $piece[count($piece) - 2] . '/' . $piece[count($piece) - 1 ];
 
 		  $filename = utf8_encode($filename);
-      $title = utf8_encode($row['c16'];
+      $title = utf8_encode($row['c16']);
 
 	?>
 	  <tr class='table-row'>
