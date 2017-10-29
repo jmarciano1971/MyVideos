@@ -29,7 +29,7 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 	if(!empty($_POST['search']['keyword'])) {
 		$search_keyword = $_POST['search']['keyword'];
 	}
-	$sql = 'select idMovie, idFile, c16 , c02, c16, c19, c22, c00, c08 from movie WHERE c00 LIKE :keyword OR c16 LIKE :keyword order by premiered desc ';
+	$sql = 'select idMovie, idFile, c16 , c02, c16, c19, c22, c00, c08, c14 from movie WHERE c00 LIKE :keyword OR c16 LIKE :keyword order by premiered desc ';
 
 	/* Pagination Code starts */
 	$per_page_html = '';
@@ -74,7 +74,8 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 	<tr>
 	  <th class='table-header' width='20%'>Capa</th>
 	  <th class='table-header' width='40%'>Título Original</th>
-	  <th class='table-header' width='20%'>Date</th>
+	  <th class='table-header' width='10%'>Lançamento</th>
+		<th class='table-header' width='10%'>Gênero</th>
 	</tr>
   </thead>
   <tbody id='table-body'>
@@ -88,7 +89,8 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 	  <tr class='table-row'>
 		<td><img src="<?php echo $img; ?>" alt="Smiley face" height="160" width="120"></td>
 		<td><?php echo $row['c16']; ?></td>
-		<td><?php echo "-"; ?></td>
+		<td><?php echo $row['premiered']; ?></td>
+		<td><?php echo $row['c14']; ?></td>
 	  </tr>
     <?php
 		}
