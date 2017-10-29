@@ -63,6 +63,8 @@
     //get rows
     $query = $db->query("select idMovie, idFile, c16 , c02, c16, c19, c22 from movie $whereSQL $orderSQL LIMIT $start,$limit");
 
+echo ("select idMovie, idFile, c16 , c02, c16, c19, c22 from movie $whereSQL $orderSQL LIMIT $start,$limit");
+
     if($query->num_rows > 0){ ?>
         <div class="posts_list">
         <?php
