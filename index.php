@@ -4,6 +4,7 @@ require_once('db.php');
 ?>
 <html>
 <head>
+	<title>MyVideos by JMS</title>
 <style>
 body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 .tbl-qa{width: 100%;font-size:0.9em;background-color: #f5f5f5;}
@@ -29,7 +30,7 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 	if(!empty($_POST['search']['keyword'])) {
 		$search_keyword = $_POST['search']['keyword'];
 	}
-	$sql = 'select idMovie, idFile, c16 , c02, c16, c19, c22, c00, c08, c14,c01, premiered from movie WHERE c00 LIKE :keyword OR c16 LIKE :keyword order by premiered desc ';
+	$sql = 'select idMovie, idFile, c16 , c02, c16, c19, c22, c00, c08, c14,c01,c03, premiered from movie WHERE c00 LIKE :keyword OR c16 LIKE :keyword order by premiered desc ';
 
 	/* Pagination Code starts */
 	$per_page_html = '';
@@ -98,10 +99,10 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 	?>
 	  <tr class='table-row'>
 		<td>
-    <?php echo "<a href=\"videoPlayer.php?filename=$filename&poster=$img\">";?><img src=<?php echo $img; ?> title="<?php echo $row['c01']; ?>" height="160" width="120">
+    <?php echo "<a href=\"videoPlayer.php?filename=$filename&poster=$img\">";?><img src=<?php echo $img; ?> title="<?php echo utf8_encode($row['c01']); ?>" height="160" width="120">
 		</a></td>
 		<td><?php echo $row['c16']; ?></td>
-		<td><?php echo utf8_encode($row['c00']); ?></td>
+		<td title="<?php echo utf8_encode($row['c03']); ?>"><?php echo utf8_encode($row['c00']); ?></td>
 		<td><?php echo $row['premiered']; ?></td>
 		<td><?php echo utf8_encode($row['c14']); ?></td>
 	  </tr>
