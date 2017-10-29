@@ -68,11 +68,12 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 ?>
 <form name='frmSearch' action='' method='post'>
 <div style='text-align:right;margin:20px 0px;'><input type='text' name='search[keyword]' value="<?php echo $search_keyword; ?>" id='keyword' maxlength='25'></div>
+<?php echo $per_page_html; ?>
 <table class='tbl-qa'>
   <thead>
 	<tr>
-	  <th class='table-header' width='20%'>Title</th>
-	  <th class='table-header' width='40%'>Description</th>
+	  <th class='table-header' width='20%'>Capa</th>
+	  <th class='table-header' width='40%'>Título Original</th>
 	  <th class='table-header' width='20%'>Date</th>
 	</tr>
   </thead>
@@ -86,7 +87,7 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 	?>
 	  <tr class='table-row'>
 		<td><img src="<?php echo $img; ?>" alt="Smiley face" height="160" width="120"></td>
-		<td><?php echo $row['16']; ?></td>
+		<td><?php echo $row['c16']; ?></td>
 		<td><?php echo "-"; ?></td>
 	  </tr>
     <?php
