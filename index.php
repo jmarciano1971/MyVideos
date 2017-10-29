@@ -86,7 +86,7 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 
 			$img = getTextBetweenTags($row['c08'], "thumb");
 
-			$piece = explode('/',$row[6]);
+			$piece = explode('/',$row['c22']);
 
 		  $filename = "/media/filmes/" . $piece[count($piece) - 1];
 			if (!file_exists($filename))
@@ -96,7 +96,7 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 
 	?>
 	  <tr class='table-row'>
-		<td><a href="videoPlayer.php?filename="<?php echo $filename;?>><img src="<?php echo $img; ?>" alt="Smiley face" height="160" width="120"></a></td>
+		<td><a href=videoPlayer.php?filename=<?php echo $filename;?>&poster=<?php echo $img; ?>><img src=<?php echo $img; ?> alt="Smiley face" height="160" width="120"></a></td>
 		<td><?php echo $row['c16']; ?></td>
 		<td><?php echo utf8_encode($row['c00']); ?></td>
 		<td><?php echo $row['premiered']; ?></td>
