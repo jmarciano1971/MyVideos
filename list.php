@@ -48,7 +48,7 @@
     $limit = 10;
 
     //get number of rows
-    $queryNum = $db->query("SELECT COUNT(*) as postNum FROM movie ".$whereSQL.$orderSQL);
+    $queryNum = $db->query("SELECT COUNT(*) as postNum FROM movie");
     $resultNum = $queryNum->fetch_assoc();
     $rowCount = $resultNum['postNum'];
 
@@ -61,9 +61,7 @@
     $pagination =  new Pagination($pagConfig);
 
     //get rows
-    $query = $db->query("select idMovie, idFile, c16 , c02, c16, c19, c22 from movie $whereSQL $orderSQL LIMIT $start,$limit");
-
-echo ("select idMovie, idFile, c16 , c02, c16, c19, c22 from movie $whereSQL $orderSQL LIMIT $start,$limit");
+    $query = $db->query("select idMovie, idFile, c16 , c02, c16, c19, c22 from movie ORDER BY premiered DESC LIMIT $limit");
 
     if($query->num_rows > 0){ ?>
         <div class="posts_list">

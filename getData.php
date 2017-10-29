@@ -2,13 +2,13 @@
 if(isset($_POST['page'])){
     //Include pagination class file
     include('Pagination.php');
-    
+
     //Include database configuration file
     include('dbConfig.php');
-    
+
     $start = !empty($_POST['page'])?$_POST['page']:0;
     $limit = 10;
-    
+
     //set conditions for search
     $whereSQL = $orderSQL = '';
     $keywords = $_POST['keywords'];
@@ -23,7 +23,7 @@ if(isset($_POST['page'])){
     }
 
     //get number of rows
-    $queryNum = $db->query("SELECT COUNT(*) as postNum FROM posts ".$whereSQL.$orderSQL);
+    $queryNum = $db->query("SELECT COUNT(*) as postNum FROM movie ".$whereSQL.$orderSQL);
     $resultNum = $queryNum->fetch_assoc();
     $rowCount = $resultNum['postNum'];
 
@@ -35,17 +35,17 @@ if(isset($_POST['page'])){
         'link_func' => 'searchFilter'
     );
     $pagination =  new Pagination($pagConfig);
-    
+
     //get rows
-    $query = $db->query("SELECT * FROM posts $whereSQL $orderSQL LIMIT $start,$limit");
-    
+    $query = $db->query("select idMovie, idFile, c16 , c02, c16, c19, c22 from movie $whereSQL $orderSQL LIMIT $start,$limit");
+
     if($query->num_rows > 0){ ?>
         <div class="posts_list">
         <?php
-            while($row = $query->fetch_assoc()){ 
-                $postID = $row['id'];
+            while($row = $query->fetch_assoc(MYSQLI_NUM)){
+                $postID = $row[0];
         ?>
-            <div class="list_item"><a href="javascript:void(0);"><h2><?php echo $row["title"]; ?></h2></a></div>
+            <div class="list_item"><a href="javascript:void(0);"><h2><?php echo $row[6]; ?></h2></a></div>
         <?php } ?>
         </div>
         <?php echo $pagination->createLinks(); ?>
