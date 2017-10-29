@@ -3,6 +3,8 @@
   <head>
     <meta charset="ISO8859-1">
     <title></title>
+
+    <link rel = "stylesheet" type = "text/css" href = "css/style-pagination.css" />
     <script src="jquery.min.js"></script>
     <script>
     function searchFilter(page_num) {
