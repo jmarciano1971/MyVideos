@@ -90,8 +90,8 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 			$piece = explode('/',$row['c22'], 6);
 
 		  $filename = "/media/filmes/" . $piece[count($piece) - 1];
-			if (!file_exists($filename))
-				 $filename = "/media/filmes/" . $piece[count($piece) - 2] . '/' . $piece[count($piece) - 1 ];
+//			if (!file_exists($filename))
+//				 $filename = "/media/filmes/" . $piece[count($piece) - 2] . '/' . $piece[count($piece) - 1 ];
 
 		  $filename = utf8_encode($filename);
 
