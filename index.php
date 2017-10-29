@@ -20,9 +20,9 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 <?php
 
   function getTextBetweenTags($string, $tagname) {
-    $pattern = "/<$tagname>([\w\W]*?)<\/$tagname>/";
-    preg_match($pattern, $string, $matches);
-    return $matches[1];
+		    $pattern = "#<\s*?$tagname\b[^>]*>(.*?)</$tagname\b[^>]*>#s";
+		    preg_match($pattern, $string, $matches);
+		    return $matches[1];
   }
 
 	$search_keyword = '';
