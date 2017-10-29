@@ -50,7 +50,7 @@ class Pagination{
             $this->anchorClass = 'class="'.$this->anchorClass.'" ';
         }
     }
-
+    
     function initialize($params = array()){
         if (count($params) > 0){
             foreach ($params as $key => $val){
