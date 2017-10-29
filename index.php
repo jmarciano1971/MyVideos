@@ -18,6 +18,13 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 </head>
 <body>
 <?php
+
+  function getTextBetweenTags($string, $tagname) {
+    $pattern = "/<$tagname>(.*?)<\/$tagname>/";
+    preg_match($pattern, $string, $matches);
+    return $matches[1];
+  }
+
 	$search_keyword = '';
 	if(!empty($_POST['search']['keyword'])) {
 		$search_keyword = $_POST['search']['keyword'];
@@ -73,11 +80,14 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 	<?php
 	if(!empty($result)) {
 		foreach($result as $row) {
+
+			$txt = getTextBetweenTags($row['c20'], "thumb");
+
 	?>
 	  <tr class='table-row'>
 		<td><?php echo $row['c16']; ?></td>
 		<td><?php echo $row['c22']; ?></td>
-		<td><?php echo $row['c20']; ?></td>
+		<td><?php echo $txt; ?></td>
 	  </tr>
     <?php
 		}
