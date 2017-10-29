@@ -17,13 +17,13 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 </style>
 </head>
 <body>
-<?php	
+<?php
 	$search_keyword = '';
 	if(!empty($_POST['search']['keyword'])) {
 		$search_keyword = $_POST['search']['keyword'];
 	}
-	$sql = 'SELECT * FROM posts WHERE post_title LIKE :keyword OR description LIKE :keyword OR post_at LIKE :keyword ORDER BY id DESC ';
-	
+	$sql = 'select idMovie, idFile, c16 , c02, c16, c19, c22, c01 from movie WHERE c01 LIKE :keyword OR c02 LIKE :keyword order by premiered desc ';
+
 	/* Pagination Code starts */
 	$per_page_html = '';
 	$page = 1;
@@ -52,7 +52,7 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 		}
 		$per_page_html .= "</div>";
 	}
-	
+
 	$query = $sql.$limit;
 	$pdo_statement = $pdo_conn->prepare($query);
 	$pdo_statement->bindValue(':keyword', '%' . $search_keyword . '%', PDO::PARAM_STR);
@@ -71,13 +71,13 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
   </thead>
   <tbody id='table-body'>
 	<?php
-	if(!empty($result)) { 
+	if(!empty($result)) {
 		foreach($result as $row) {
 	?>
 	  <tr class='table-row'>
-		<td><?php echo $row['post_title']; ?></td>
-		<td><?php echo $row['description']; ?></td>
-		<td><?php echo $row['post_at']; ?></td>
+		<td><?php echo $row['c02']; ?></td>
+		<td><?php echo $row['c22']; ?></td>
+		<td><?php echo $row['premiered']; ?></td>
 	  </tr>
     <?php
 		}
