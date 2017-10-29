@@ -94,17 +94,17 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 //				 $filename = "/media/filmes/" . $piece[count($piece) - 2] . '/' . $piece[count($piece) - 1 ];
 
 		  $filename = utf8_encode($filename);
-
+      $title = utf8_encode($row['c16'];
 
 	?>
 	  <tr class='table-row'>
 		<td>
-    <?php echo "<a href=\"videoPlayer.php?filename=$filename&poster=$img\">";?><img src=<?php echo $img; ?> title="<?php echo utf8_encode($row['c01']); ?>" height="160" width="120">
+    <?php echo "<a href=\"videoPlayer.php?filename=$filename&poster=$img&title=$title\">";?><img src=<?php echo $img; ?> title="<?php echo utf8_encode($row['c01']); ?>" height="160" width="120">
 		</a></td>
-		<td><?php echo $row['c16']; ?></td>
-		<td title="<?php echo utf8_encode($row['c03']); ?>"><?php echo utf8_encode($row['c00']); ?></td>
-		<td><?php echo $row['premiered']; ?></td>
-		<td><?php var_dump($piece); ?></td>
+		<td align="center"><?php echo $title; ?></td>
+		<td align="center"><?php echo utf8_encode($row['c00']); ?></td>
+		<td align="center"><?php echo $row['premiered']; ?></td>
+    <td align="center"><?php echo utf8_encode($row['c14']); ?></td>
 	  </tr>
     <?php
 		}
